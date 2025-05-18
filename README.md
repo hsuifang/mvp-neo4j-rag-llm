@@ -14,6 +14,38 @@
 - [Grok xAI 模型（透過 ChatXAI）](https://x.ai)
 - [Streamlit](https://streamlit.io)
 
+```
+
+project_root/
+│
+├── app.py                    # Streamlit 啟動主程式
+├── requirements.txt          # 所有套件依賴
+├── README.md                 # 使用說明
+│
+├── src/                      # 🔹 Python 主邏輯程式碼區
+│   ├── __init__.py
+│   ├── prompts/ # 多版本 Prompt 對照組
+│   │   ├── system_prompt.txt         # System Prompt 設定
+│   │   └── cypher_prompt.txt         # Cypher Prompt 設定
+│   │
+│   ├── qa/
+│   │   ├── __init__.py
+│   │   ├── chain_builder.py          # 建立強化版 GraphCypherQAChain 的模組
+│   │   └── utils.py                  # 讀取 prompt、其他共用工具
+│   │
+│   └── triplet_loader/
+│       ├── __init__.py
+│       └── create_triplet.py         # 匯入 triplet 到 Neo4j 的腳本
+│
+├── data/                     # 測試資料或 triplet.json 可放這裡
+│   └── sample_triplets.json
+│
+├── tests/                    # 🔍 Prompt 測試框架
+   ├── __init__.py
+   ├── questions.json                 # 測試問題集
+   ├── expected_answers.json          # 對應標準答案（可選）
+   └── test_prompt_versions.py       # 主測試程式（含語法審查）
+```
 ---
 
 ## 🚀 METHODS

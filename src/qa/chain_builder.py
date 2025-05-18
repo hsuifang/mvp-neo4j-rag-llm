@@ -16,8 +16,8 @@ from src.qa.utils import load_prompt
 
 def build_chain() -> GraphCypherQAChain:
     # 載入 prompt
-    system_prompt = load_prompt(src_path / "prompt/system_prompt.txt")
-    cypher_prompt = load_prompt(src_path / "prompt/cypher_prompt.txt")
+    system_prompt = load_prompt(src_path / "prompt/v1_system.txt")
+    cypher_prompt = load_prompt(src_path / "prompt/v1_cypher.txt")
 
     # 連接圖資料庫
     graph = Neo4jGraph(
